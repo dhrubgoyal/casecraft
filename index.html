@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0b1020" />
+  <meta name="description" content="CaseCraft — an interactive fictional cybercrime investigation experience." />
+  <title>CaseCraft | Digital Investigation Bureau</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="#" aria-label="CaseCraft home">
+        <span class="brand-mark">C<span>+</span></span>
+        <span><strong>CASECRAFT</strong><small>DIGITAL INVESTIGATION BUREAU</small></span>
+      </a>
+      <div class="side-label">WORKSPACE</div>
+      <nav class="nav">
+        <button class="nav-link active" data-view="dashboard"><span class="nav-icon">⌂</span> Overview</button>
+        <button class="nav-link" data-view="cases"><span class="nav-icon">▤</span> Case files <span class="nav-count">03</span></button>
+        <button class="nav-link" data-view="board"><span class="nav-icon">⌘</span> Evidence board</button>
+        <button class="nav-link" data-view="reports"><span class="nav-icon">▧</span> Reports</button>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="agent-card">
+          <div class="agent-avatar">DG</div>
+          <div><strong>Dhrub Goyal</strong></div>
+          <span class="online-dot"></span>
+        </div>
+        <div class="sidebar-note"><span class="pulse"></span> SIMULATION ENVIRONMENT <b>ONLINE</b></div>
+      </div>
+    </aside>
+
+    <main class="main-area">
+      <header class="topbar">
+        <button class="mobile-menu" id="mobileMenu" aria-label="Toggle menu">☰</button>
+        <div class="breadcrumb">WORKSPACE <span>/</span> <b id="crumb">OVERVIEW</b></div>
+        <div class="top-actions">
+          <span class="safe-tag"><i></i> TRAINING MODE</span>
+          <button class="icon-btn" id="resetProgress" title="Reset demo progress" aria-label="Reset progress">↻</button>
+        </div>
+      </header>
+
+      <section class="view active" id="dashboardView">
+        <div class="welcome-row">
+          <div>
+            <div class="eyebrow"><span class="eyebrow-line"></span> DIGITAL INVESTIGATION BUREAU</div>
+            <h1>Welcome back, <span>Dhrub.</span></h1>
+            <p class="muted">Every clue matters. Every detail tells a story.</p>
+          </div>
+          <div class="date-chip"><span class="date-icon">◷</span><span><small>YOUR WORKSPACE</small><b>Investigator desk</b></span></div>
+        </div>
+
+        <div class="hero-card">
+          <div class="hero-content">
+            <div class="hero-kicker"><span class="live-dot"></span> NEW ASSIGNMENT AVAILABLE</div>
+            <h2>The truth is<br/><em>in the details.</em></h2>
+            <p>Examine digital evidence, connect the dots and solve fictional cybercrime cases. Your next breakthrough starts with one clue.</p>
+            <button class="primary-btn" data-open-case="midnight">Continue investigation <span>↗</span></button>
+          </div>
+          <div class="hero-art" aria-hidden="true">
+            <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+            <div class="radar"><div class="radar-sweep"></div><span class="radar-center"></span><i class="radar-point p1"></i><i class="radar-point p2"></i><i class="radar-point p3"></i></div>
+            <div class="floating-chip chip-a">EVIDENCE <b>06</b></div>
+            <div class="floating-chip chip-b">SIGNAL <b>DETECTED</b></div>
+            <div class="hero-code">CC / 073<br/>TRACE: ACTIVE</div>
+          </div>
+          <div class="hero-watermark">CC</div>
+        </div>
+
+        <div class="stats-grid">
+          <article class="stat-card"><div class="stat-top"><span>CASES SOLVED</span><span class="stat-symbol green">✓</span></div><strong id="solvedCount">0<span>/3</span></strong><small>Completed investigations</small></article>
+          <article class="stat-card"><div class="stat-top"><span>EVIDENCE REVIEWED</span><span class="stat-symbol blue">⌕</span></div><strong id="evidenceCount">0<span>/12</span></strong><small>Clues examined so far</small></article>
+          <article class="stat-card"><div class="stat-top"><span>INVESTIGATOR XP</span><span class="stat-symbol purple">✧</span></div><strong id="xpCount">000</strong><small>Experience points earned</small></article>
+          <article class="stat-card"><div class="stat-top"><span>CURRENT RANK</span><span class="stat-symbol amber">◇</span></div><strong class="rank-value" id="rankValue">CADET</strong><small id="rankHint">Keep investigating to rank up</small></article>
+        </div>
+
+        <div class="section-heading"><div><div class="eyebrow">YOUR ASSIGNMENTS</div><h2>Active case files</h2></div><button class="text-btn" data-view="cases">View all cases <span>→</span></button></div>
+        <div class="case-grid" id="dashboardCases"></div>
+        <div class="bottom-grid">
+          <article class="panel activity-panel"><div class="panel-heading"><div><span class="eyebrow">RECENT ACTIVITY</span><h3>Investigation log</h3></div><span class="tiny-live">LIVE</span></div><div id="activityList" class="activity-list"><div class="empty-activity">Your investigation activity will appear here.</div></div></article>
+          <article class="panel profile-panel"><span class="eyebrow">INVESTIGATOR PROFILE</span><div class="profile-main"><div class="large-avatar">DG</div><div><h3>Dhrub Gotyal</h3><p>Junior Investigator · ADTU</p></div></div><div class="profile-line"><span>Enrollment ID</span><b>ADTU/1/2025-29/BCSS/073</b></div><div class="profile-line"><span>Faculty Supervisor</span><b>Raj Paul</b></div><div class="profile-line"><span>Platform status</span><b class="status-good">● Active</b></div></article>
+        </div>
+      </section>
+
+      <section class="view" id="casesView">
+        <div class="page-heading"><div><div class="eyebrow">THE CASE ARCHIVE</div><h1>Case <span>files.</span></h1><p class="muted">Choose an investigation. Study the evidence. Find the truth.</p></div><div class="archive-count"><b>03</b><small>TRAINING CASES</small></div></div>
+        <div class="filter-row"><div class="search-box"><span>⌕</span><input id="caseSearch" type="search" placeholder="Search case files..." /></div><div class="filter-pills"><button class="filter-pill active" data-filter="all">All cases</button><button class="filter-pill" data-filter="open">Unsolved</button><button class="filter-pill" data-filter="solved">Solved</button></div></div>
+        <div class="case-grid archive-grid" id="allCases"></div>
+      </section>
+
+      <section class="view" id="caseDetailView">
+        <button class="back-btn" data-view="cases">← Back to case files</button>
+        <div id="caseDetail"></div>
+      </section>
+
+      <section class="view" id="boardView">
+        <div class="page-heading"><div><div class="eyebrow">CONNECT THE DOTS</div><h1>Evidence <span>board.</span></h1><p class="muted">Review the clues you have discovered across your investigations.</p></div><div class="archive-count"><b id="boardCount">00</b><small>CLUES REVIEWED</small></div></div>
+        <div class="board-intro"><span class="board-icon">⌘</span><div><b>Think like an investigator</b><p>Evidence is gathered by opening case files and examining each clue. Your reviewed evidence appears below.</p></div></div>
+        <div id="evidenceBoard" class="evidence-grid"></div>
+      </section>
+
+      <section class="view" id="reportsView">
+        <div class="page-heading"><div><div class="eyebrow">DOCUMENTATION</div><h1>Case <span>reports.</span></h1><p class="muted">Your investigation conclusions, ready to export.</p></div></div>
+        <div class="report-layout"><div class="panel report-list-panel"><div class="panel-heading"><div><span class="eyebrow">REPORT ARCHIVE</span><h3>Completed investigations</h3></div></div><div id="reportList"></div></div><div class="panel report-info"><div class="report-icon">▤</div><h3>Investigation reports</h3><p>Complete a case to generate a report. Reports include your selected conclusion, score and evidence reviewed.</p><div class="report-tip"> <b>TIP</b><span>Read every clue carefully before submitting your final conclusion.</span></div></div></div>
+      </section>
+
+      <footer class="footer"><span>CASECRAFT <b>© 2025</b></span><span>FICTIONAL TRAINING SIMULATION · NOT A REAL FORENSIC TOOL</span></footer>
+    </main>
+  </div>
+
+  <div class="modal-backdrop" id="modalBackdrop">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" id="modalClose" aria-label="Close">×</button>
+      <div class="modal-icon">⌖</div><div class="eyebrow">FINAL INVESTIGATION</div><h2 id="modalTitle">Who is responsible?</h2><p id="modalDescription">Review the evidence and select the most likely suspect.</p>
+      <div id="suspectChoices" class="suspect-choices"></div>
+      <label class="reason-label" for="reasonInput">Your reasoning <span>(optional)</span></label><textarea id="reasonInput" rows="3" placeholder="Explain which clues support your conclusion..."></textarea>
+      <div id="answerFeedback" class="answer-feedback"></div>
+      <button class="primary-btn modal-submit" id="submitConclusion">Submit conclusion <span>→</span></button>
+    </div>
+  </div>
+  <div class="toast" id="toast" role="status"></div>
+  <script src="script.js"></script>
+</body>
+</html>
